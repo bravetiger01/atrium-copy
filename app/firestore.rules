@@ -1,0 +1,63 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Users
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow create, update, delete: if request.auth != null
+                                    && request.auth.uid == userId;
+    }
+
+    // Projects subcollection under user
+    match /users/{userId}/projects/{projectId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null
+                   && request.auth.uid == userId;
+    }
+
+    // Jobs
+    match /jobs/{jobId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null;
+    }
+
+    // Swipes
+    match /swipes/{swipeId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Matches
+    match /matches/{matchId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Chats
+    match /chats/{chatId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Messages
+    match /chats/{chatId}/messages/{messageId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Notifications — top-level doc
+    match /notifications/{userId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Notifications — items subcollection (THIS was missing — fixes the bell)
+    match /notifications/{userId}/items/{itemId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // OTP codes — user can only read/write their own document
+    match /otp_codes/{userId} {
+      allow read, write: if request.auth != null
+                         && request.auth.uid == userId;
+    }
+  }
+}

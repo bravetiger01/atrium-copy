@@ -1,0 +1,22 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "swipehire-flutter",
+          "appId": "1:313085995028:android:368a4b0084885c18379f01",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "swipehire-flutter",
+          "configurations": {
+            "android": "1:313085995028:android:368a4b0084885c18379f01",
+            "ios": "1:313085995028:ios:3ef370c8f6739141379f01"
+          }
+        }
+      }
+    }
+  }
+}

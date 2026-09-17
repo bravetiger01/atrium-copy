@@ -1,0 +1,34 @@
+# ── Skills / agents ─────────────────────────────────────────────
+.skills/
+.agents/
+skills-lock.json
+
+# ── OS ──────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ── IDE / editor ────────────────────────────────────────────────
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# ── Logs / temp ─────────────────────────────────────────────────
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+
+# ── Env / secrets ───────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.local
+
+# ── Node (safety net; subfolder .gitignore files cover specifics) ──
+node_modules/
+.next/
+out/
